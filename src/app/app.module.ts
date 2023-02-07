@@ -11,12 +11,16 @@ import { AppComponent } from './app.component';
 import { StudentApiService } from './service/student-api.service';
 import { StudentListComponent } from './components/student-list/student-list.component';
 import { StudentUniqueComponent } from './components/student-unique/student-unique.component';
+import { StudentInsertComponent } from './components/student-insert/student-insert.component';
+import { StudentUpdateComponent } from './components/student-update/student-update.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StudentListComponent,
-    StudentUniqueComponent
+    StudentUniqueComponent,
+    StudentInsertComponent,
+    StudentUpdateComponent
   ],
   imports: [
     BrowserModule,

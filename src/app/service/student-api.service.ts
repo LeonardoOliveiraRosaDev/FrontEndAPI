@@ -59,6 +59,22 @@ export class StudentApiService {
     return this.httpReq.get<IStudent>(this.apiUrlBase+'/GetOne/'+id)
   }
 
-  // 3º parte:
+  // 3º parte: estabelecer o método/requisição/função para inserir dados na base - fazendo a chamada da API
+  insertStudentRegistes(reciveData: any): Observable<IStudent>{
+    // http://localhost:5121/api/Student/AddRegister
+    return this.httpReq.post<IStudent>(this.apiUrlBase+'/AddRegister',JSON.stringify(reciveData), this.crossAuth)
+  }
 
+  // 4º parte: estabelecer o método/requisição/função para atualizar os dados da base - fazendo a chamada da API
+  updateStudent(id: any, otherRegiste: any): Observable<IStudent>{
+     // http://localhost:5121/api/Student/upRegister/:id
+
+     return this.httpReq.put<IStudent>(this.apiUrlBase+'/UpRegister/'+id, JSON.stringify(otherRegiste), this.crossAuth)
+     }
+       // 5º parte: estabelecer o método/requisição/função para a exclusão de um registro -chamando a API
+       deleteRegister(id: any){
+        // http://localhost:5121/api/Student/delRegister/:id
+        return this.httpReq.delete<IStudent>(this.apiUrlBase+'/delRegister/'+id, this.crossAuth)
+       }
 }
+

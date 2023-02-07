@@ -1,1 +1,47 @@
-<p>student-list Funcionando Perfeitamente!</p>
+<!-- IMPLEMENTAR A VIEW DO COMPONENTE EM 2 "PEDAÇOS": O 1º SERÁ EXIBIDO SE EXISTIR ALGUM DADO TRAZIDO DA BASE; O 2º SERÁ EXIBIDO SE, SOMENTE SE, NÃO EXISTIR NENHUM REGISTRO TRAZIDO DA BASE -->
+
+<div class= "container"><!-- Esta é a div principal -->
+    <div class= "col-md-12"> <!-- div para organizar os espaços onde serão exibidos os dados -->
+
+        <div *ngIf= "studentsList != 0; else noData"> <!-- Esta div será usada para exibir os dados se existirem -->
+            <h3>{{ titleComp }}</h3>
+            <table class= " table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Idade</th>
+                        <th scope="col">Genero</th>
+                        <th scope="col">Ação a executar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor= "let items of studentsList"><!-- Aqui será aplicada a diretiva estrutural *ngFor para que cada registro seja iterado e exibido -->
+                        <td>{{ items.id }}</td>
+                        <td>{{ items.name }}</td>
+                        <td>{{ items.age }}</td>
+                        <td>{{ items.gender }}</td>
+                        <button class="btn btn-outline-primary btn-sm" routerLink="/student-update/{{ items.id }}">
+                            Editar
+                        </button>
+                        <button class= "btn btn-outline-secondary btn-sm" routerLink="/student-unique/{{ items.id }}">
+                            Detalhes
+                        </button>
+                        <button class= "btn btn-outline-danger btn-sm" (click)="delStudentRegister(items.id)">
+                            Excluir
+                        </button>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Criar a "mini-view" ng-template que será exibido quando não existir dados para recuperar -->
+    <ng-template #noData>
+        <div class="text-center">
+            <p>Registros não encontrados! Por favor insira um registro novo.</p>
+        </div>
+        <button class="btn btn-outline-primary" routerLink= "/student-insert">
+            Criar registro
+        </button>
+    </ng-template>
+</div> 
