@@ -60,7 +60,7 @@ export class StudentApiService {
   }
 
   // 3º parte: estabelecer o método/requisição/função para inserir dados na base - fazendo a chamada da API
-  insertStudentRegistes(reciveData: any): Observable<IStudent>{
+  insertStudentRegister(reciveData: any): Observable<IStudent>{
     // http://localhost:5121/api/Student/AddRegister
     return this.httpReq.post<IStudent>(this.apiUrlBase+'/AddRegister',JSON.stringify(reciveData), this.crossAuth)
   }

@@ -1,1 +1,40 @@
-<p>student-unique Funcionando Perfeitamente!</p>
+<!-- Implementar a view necessária para exibir os detalhes de info sobre o registro -->
+
+<div class="container"><!-- Div principal - container -->
+    <div class="col-md-12"><!-- div de organização de espaço -->
+        <div *ngIf="studentUniqueRegister != 0; else noRegister "><!-- Para a diretiva *ngI f-->
+            <h3>{{ titleComp }}</h3>
+            <table class=" table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Idade</th>
+                        <th scope="col">Genero</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ studentUniqueRegister.id }}</td>
+                        <td>{{ studentUniqueRegister.name }}</td>
+                        <td>{{ studentUniqueRegister.age }}</td>
+                        <td>{{ studentUniqueRegister.gender }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+        <ng-template #noRegister> <!-- Mini-view será exibida se o registro nao existir-->
+            <div class="text-center">
+                <p>
+                    Nenhum registro foi identificado! Crie um novo
+                    Clique no botão abaixo....
+                </p>
+                <button class="btn btn-outline-primary" routerLink="/student-insert">
+                    Criar registro
+                </button>
+            </div>
+        </ng-template>
+    </div>
+</div> 
