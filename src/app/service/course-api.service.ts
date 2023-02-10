@@ -1,3 +1,6 @@
+// NÃO ESQUECER DE INSTANCIAR O SERVICE NO  APP.MODULE.TS
+// providers: [ CourseApiService ]
+
 import { Injectable } from '@angular/core';
 
 // Importar as Dependecias para as Requisições Http , e tb auxilia nas credenciais de acesso ao CrossDomain
@@ -7,10 +10,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ICourse } from '../model/ICourse';
 
 // Importar a Dependencia para implementações das Tarefas Assincronas necessárias.
+
+// TS - Observable - Esta Observando até ser chamado !
+// TS - subscribe - Agora ele vai chamar o observable
 import { Observable } from 'rxjs';
 
 /*
 @Injectable({
+  // providedIn: 'root ' cria uma instancia unica do service
   providedIn: 'root'
 })
 */
@@ -24,9 +31,10 @@ export class CourseApiService {
   // Objeto referencial da nossa requisição http
   constructor(private RequiHttp: HttpClient) { }
 
-  // Definir as credenciais de acesso para o cross-domain entre FrontEnd e BackEnd.
+  // Definir as credenciais de acesso para o cross-domain entre FrontEnd e BackEnd. Recurso que nos da a possibilidade de cruzar o dominio do front para o back e modificar a base de dados ! Devido a modificação que é feita na base com o POST, PUT, DELETE, sem isso abaixo ele nao deixa gravar nada na base
   credAcess = {
     headers: new HttpHeaders({
+      // FAZ PARTE DE UM TRANSPORTADOR DE CONTEUDO EM UM DETERMINADO FORMATO.
       'Content-Type' : 'application/json'
     })
   }
@@ -43,29 +51,33 @@ export class CourseApiService {
 // 1º Processo - Recuperar todos os Dados completos da base
 
 PegarTodosRegistros() : Observable<ICourse>{
+   //apiEndUrl = http://localhost:5121/api/Course
   return this.RequiHttp.get<ICourse>(this.apiEndUrl+'/GetAll')
 }
 
 // 2º Processo - Recuperar apenas um dado especifico e Identificado da Base
 
 PegarUmRegistro(id: number) : Observable<ICourse>{
-  //apiEndUrl = http://localhost:5121/api/Student/GetOne/2
+  //apiEndUrl = http://localhost:5121/api/Course/GetOne/2
   return this.RequiHttp.get<ICourse>(this.apiEndUrl+'/GetOne/'+id)
 }
 
 // 3º Processo: Inserir dados na base
+//JSON.stringify()- cria uma unica frase em formato Json cria uma unica string , uma unica linha serialized
 inserirCurso(data: any) : Observable<ICourse>{
-  //apiEndUrl = http://localhost:5121/api/Student/AddRegister
+  //apiEndUrl = http://localhost:5121/api/Course/AddRegister
   return this.RequiHttp.post<ICourse>(this.apiEndUrl+'/AddRegister', JSON.stringify(data), this.credAcess)
+  // JSON.stringify == {"id:0,NomeCurso: XXXXXX, Mensalidade: XXXXXX"}
 }
 
 // 4º Processo: Atualizar 1 registro especifico do DB
 AtualizarCourse(id: any, novoRegistro: any) : Observable<ICourse>{
-  return this.RequiHttp.put<ICourse>(this.apiEndUrl+'UpRegister/'+id, JSON.stringify(novoRegistro), this.credAcess)
+  return this.RequiHttp.put<ICourse>(this.apiEndUrl+'/UpRegister/'+id, JSON.stringify(novoRegistro), this.credAcess)
+  // JSON.stringify == {"id:0,NomeCurso: XXXXXX, Mensalidade: XXXXXX"}
 }
   
-// 5º processo: Excluir um dado da base
-ExcluirCourse(id: any) : Observable<ICourse>{
+// 5º processo: Excluir um dado da base especifico 
+ExcluirCourse(id: any){
   return this.RequiHttp.delete<ICourse>(this.apiEndUrl+'/delRegister/'+id, this.credAcess)
 }
 
