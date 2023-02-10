@@ -49,13 +49,13 @@ export class StudentApiService {
 
   // 1º parte: estabelecer um método/requisição http para chamar a API e acessar o método que recupera todos os registros da base.
   GetAllRegisters(): Observable<IStudent>{
-    //http://localhost:5121/api/Student/GetAll
+    //apiUrlBase = http://localhost:5121/api/Student/GetAll
     return this.httpReq.get<IStudent>(this.apiUrlBase+'/GetAll')
   } 
 
   // 2º parte: estabelecer o método/requisição para recuperar um único registro da base - fazendo a chamada da API - e oferecer o elemento identificação á API.
   GetOneRegister(id: number) : Observable<IStudent>{
-    //http://localhost:5121/api/Student/GetOne/2
+    //apiUrlBase = http://localhost:5121/api/Student/GetOne/2
     return this.httpReq.get<IStudent>(this.apiUrlBase+'/GetOne/'+id)
   }
 
