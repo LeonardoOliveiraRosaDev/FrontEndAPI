@@ -11,6 +11,7 @@ import { StudentUpdateComponent } from './components/student-update/student-upda
 import { CourseListComponent } from './components/course-list/course-list.component';
 import { CourseUniqueComponent } from './components/course-unique/course-unique.component';
 import { CourseInsertComponent } from './components/course-insert/course-insert.component';
+import { CourseUpdateComponent } from './components/course-update/course-update.component';
 
 
 // Traçando as rotas do componentes dentro deste const routes !
@@ -21,7 +22,8 @@ const routes: Routes = [
   {path: 'student-update/:id', component:StudentUpdateComponent},
   {path: 'course-list', component:CourseListComponent},
   {path: 'course-unique/:id', component:CourseUniqueComponent},
-  {path: 'course-insert', component: CourseInsertComponent}
+  {path: 'course-insert', component: CourseInsertComponent},
+  {path: 'course-update/:id', component: CourseUpdateComponent}
 ];
 
 @NgModule({

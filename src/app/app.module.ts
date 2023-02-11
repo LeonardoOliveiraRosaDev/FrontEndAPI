@@ -17,6 +17,7 @@ import { CourseApiService } from './service/course-api.service';
 import { CourseListComponent } from './components/course-list/course-list.component';
 import { CourseInsertComponent } from './components/course-insert/course-insert.component';
 import { CourseUniqueComponent } from './components/course-unique/course-unique.component';
+import { CourseUpdateComponent } from './components/course-update/course-update.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { CourseUniqueComponent } from './components/course-unique/course-unique.
     StudentUpdateComponent,
     CourseListComponent,
     CourseInsertComponent,
-    CourseUniqueComponent
+    CourseUniqueComponent,
+    CourseUpdateComponent
   ],
   imports: [
     BrowserModule,

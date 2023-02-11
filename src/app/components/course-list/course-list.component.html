@@ -18,7 +18,7 @@
                         <td>{{ items.id }}</td>
                         <td>{{ items.nomeCurso }}</td>
                         <td>{{ items.mensalidade }}</td>
-                        <button class="btn btn-outline-primary btn-sm" routerLink="/couse-update">Editar</button>
+                        <button class="btn btn-outline-primary btn-sm" routerLink="/course-update/{{ items.Id}">Editar</button>
                         <button class="btn btn-outline-secondary btn=sm" routerLink="/course-unique/{{ items.id }}">Informações</button>
                         <button class="btn btn-outline-danger btn-sm" (click)="deleteCourseRegistro(items.id)">Apagar</button>
                     </tr>

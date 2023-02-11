@@ -1,0 +1,28 @@
+<!-- Criar um formulario para obtencao dos novos dados -->
+<div class="container">
+    <div class="col-md-12">
+
+        <h3>{{ titleComponente }}</h3>
+
+        <div class="form-group">
+            <input type="text" [(ngModel)] = "courseUpdateData.nomeCurso" placeholder="Informe o nome do Curso" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+            <input type="number" [(ngModel)] = "courseUpdateData.mensalidade" placeholder="Valor da Mensalidade" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-success btn-lg" (click) = " upCourseReg() ">
+                Salvar Curso
+            </button>
+        </div>
+
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary btn-sm" routerLink= "/course-list">
+               Voltar lista Cursos
+            </button>
+        </div>
+    </div>
+</div>
