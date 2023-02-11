@@ -4,20 +4,26 @@
         <h3>{{ titleComp }}</h3>
             
         <div class="form-group">
-            <input type="text"[(ngModel)] = "insertRegister.name" placeholder="Informe seu nome" class="form-control"/>
+           Nome do Estudante: <input type="text"[(ngModel)] = "insertRegister.name" placeholder="Informe seu nome" class="form-control"/>
         </div>   
         
         <div class="form-group">
-            <input type="number" [(ngModel)] = "insertRegister.age" placeholder="Sua idade" class="form-control"/>
+           Idade do Estudante: <input type="number" [(ngModel)] = "insertRegister.age" placeholder="Sua idade" class="form-control"/>
         </div>
 
         <div class="form-group">
-            <input type="text" [(ngModel)] = "insertRegister.gender" placeholder="Seu genero" class="form-control"/>
+           Sexo do Estudante: <input type="text" [(ngModel)] = "insertRegister.gender" placeholder="Seu genero" class="form-control"/>
         </div>
-
+        <br>
         <div class="form-group">
             <button class="btn btn-success btn-lg" (click) = "insertOneRegister()">
                 Salvar Registro
+            </button>
+        </div>
+        <br>
+        <div>
+            <button class="btn btn-primary btn-sm" routerLink = "/course-list">
+                Voltar Lista Estudantes
             </button>
         </div>
     </div>
