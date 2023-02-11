@@ -14,6 +14,9 @@ import { StudentUniqueComponent } from './components/student-unique/student-uniq
 import { StudentInsertComponent } from './components/student-insert/student-insert.component';
 import { StudentUpdateComponent } from './components/student-update/student-update.component';
 import { CourseApiService } from './service/course-api.service';
+import { CourseListComponent } from './components/course-list/course-list.component';
+import { CourseInsertComponent } from './components/course-insert/course-insert.component';
+import { CourseUniqueComponent } from './components/course-unique/course-unique.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,10 @@ import { CourseApiService } from './service/course-api.service';
     StudentListComponent,
     StudentUniqueComponent,
     StudentInsertComponent,
-    StudentUpdateComponent
+    StudentUpdateComponent,
+    CourseListComponent,
+    CourseInsertComponent,
+    CourseUniqueComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,38 @@
+<!-- IMPLEMNTAR A NOSSA VIEW DO COMPONENTE COURSES-LIST-->
+
+<div class="container"><!-- Div principal -->
+    <div class="col-md-12"><!-- Organização dos espaços onde serão exibidos nosso dados -->
+        <div *ngIf= " coursesList != 0; else noData"><!-- Esta div será usada para exibir os dados se existirem -->
+            <h3>{{titleComponente}}</h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Nome do Curso</th>
+                        <th scope="Col">Mensalidade</th>
+                        <th scope="col">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor= "let items of coursesList"><!-- Aqui será aplicada a diretiva estrutural *ngFor para que cada registro seja iterado e exibido -->
+                        <td>{{ items.id }}</td>
+                        <td>{{ items.nomeCurso }}</td>
+                        <td>{{ items.mensalidade }}</td>
+                        <button class="btn btn-outline-primary btn-sm" routerLink="/couse-update">Editar</button>
+                        <button class="btn btn-outline-secondary btn=sm" routerLink="/course-unique/{{ items.id }}">Informações</button>
+                        <button class="btn btn-outline-danger btn-sm" (click)="deleteCourseRegistro(items.id)">Apagar</button>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+      <!-- Criar a "mini-view" ng-template que será exibido quando não existir dados para recuperar -->
+      <ng-template #noData>
+        <div class="text-center">
+            <p>Cursos não encontrados! Por favor insira um Curso novo.</p>
+        </div>
+        <button class="btn btn-outline-primary" routerLink= "/course-insert">
+            Criar registro
+        </button>
+    </ng-template>
+</div>

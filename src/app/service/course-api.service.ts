@@ -1,5 +1,5 @@
 // NÃO ESQUECER DE INSTANCIAR O SERVICE NO  APP.MODULE.TS
-// providers: [ CourseApiService ]
+// providers: [ CourseApiService, xxxxxxxx ]
 
 import { Injectable } from '@angular/core';
 

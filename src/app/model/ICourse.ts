@@ -5,7 +5,7 @@
 
 export interface ICourse{
     // Definir as props
-    Id: number,
-    NomeCurso: string,
-    Mensalidade: number
+    id: number,
+    nomeCurso: string,
+    mensalidade: number
 }

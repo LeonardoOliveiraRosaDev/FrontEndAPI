@@ -1,0 +1,39 @@
+<!-- Implementar a view necessária para exibir os detalhes de info sobre o curso -->
+
+<div class="container"><!-- Div principal - container -->
+    <div class="col-md-12"><!-- div de organização de espaço -->
+        <div *ngIf=" courseUnico != 0; else noCourse "><!-- Para a diretiva *ngI f-->
+            <h3>{{ titleComponente }}</h3>
+            <table class=" table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Nome Curso</th>
+                        <th scope="col">Mensalidade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ courseUnico.id }}</td>
+                        <td>{{ courseUnico.nomeCurso }}</td>
+                        <td>{{ courseUnico.mensalidade }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+        <ng-template #noCourse> <!-- Mini-view será exibida se o registro nao existir-->
+            <div class="text-center">
+                <p>
+                    Nenhum curso foi encontrado! Crie um novo curso !
+                    Clique no botão abaixo....
+                </p>
+                <button class="btn btn-outline-primary" routerLink="/course-insert">
+                    Criar registro
+                </button>
+            </div>
+        </ng-template>
+    </div>
+</div> 
+

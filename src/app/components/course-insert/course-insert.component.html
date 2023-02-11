@@ -1,0 +1,20 @@
+<!-- Criação do formulario inserir o curso  -->
+<div class="container">
+    <div class="col-md-12">
+        <h3>{{ titleComponente }}</h3>
+            
+        <div class="form-group">
+            <input type="text"[(ngModel)] = "newCurso.nomeCurso" placeholder="Informe o nome do curso" class="form-control"/>
+        </div>   
+        
+        <div class="form-group">
+            <input type="number" [(ngModel)] = "newCurso.mensalidade" placeholder="Digite o valor da mensalidade" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-success btn-lg" (click) = "inserirUmCurso()">
+                Salvar
+            </button>
+        </div>
+    </div>
+</div>
+
