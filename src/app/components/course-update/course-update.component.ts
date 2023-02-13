@@ -1,6 +1,5 @@
 // Acrescentar o OnInit
 import { Component, OnInit } from '@angular/core';
-import { from } from 'rxjs';
 
 // Import do Service para uso do componente
 import { CourseApiService } from 'src/app/service/course-api.service';
@@ -32,7 +31,7 @@ export class CourseUpdateComponent implements OnInit{
 
   // Agora definiremos o Angular Hook ngOnInit , para "priorizar" o carregamento de algum conteudo/funcionanlidade , será "prioridade" de resgatar um unico registro
   ngOnInit(): void {
-    this.courseApi.PegarUmRegistro(this.copiandoRota).subscribe((data) => {
+    this.courseApi.PegarUmRegistro(this.copiandoRota).subscribe((data:any) => {
       this.courseUpdateData = data
     })
   }

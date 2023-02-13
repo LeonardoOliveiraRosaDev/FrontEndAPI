@@ -2,7 +2,7 @@
 
 <div class="container"><!-- Div principal -->
     <div class="col-md-12"><!-- Organização dos espaços onde serão exibidos nosso dados -->
-        <div *ngIf= " coursesList != 0; else noData"><!-- Esta div será usada para exibir os dados se existirem -->
+        <div *ngIf= " courseList != 0; else noData"><!-- Esta div será usada para exibir os dados se existirem -->
             <h3>{{titleComponente}}</h3>
             <table class="table table-bordered">
                 <thead>
@@ -14,11 +14,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor= "let items of coursesList"><!-- Aqui será aplicada a diretiva estrutural *ngFor para que cada registro seja iterado e exibido -->
+                    <tr *ngFor= "let items of courseList"><!-- Aqui será aplicada a diretiva estrutural *ngFor para que cada registro seja iterado e exibido -->
                         <td>{{ items.id }}</td>
                         <td>{{ items.nomeCurso }}</td>
                         <td>{{ items.mensalidade }}</td>
-                        <button class="btn btn-outline-primary btn-sm" routerLink="/course-update/{{ items.Id}">Editar</button>
+                        <button class="btn btn-outline-primary btn-sm" routerLink="/course-update/{{ items.id }}">Editar</button>
                         <button class="btn btn-outline-secondary btn=sm" routerLink="/course-unique/{{ items.id }}">Informações</button>
                         <button class="btn btn-outline-danger btn-sm" (click)="deleteCourseRegistro(items.id)">Apagar</button>
                     </tr>

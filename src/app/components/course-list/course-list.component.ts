@@ -15,7 +15,7 @@ export class CourseListComponent implements OnInit {
 titleComponente: string = 'Lista de Cursos'
 
 // Definir um propriedade para receber os valores da chamada da nossa Api
-coursesList: any = []
+courseList: any = []
 
 // Praticar a referencia da instancia do nosso service para fazer uso da DI
 constructor (private courseApi: CourseApiService){}
@@ -29,8 +29,8 @@ ngOnInit(): void {
 mostrarCursos(): any{
   // chamar a dependencia injector DI para acessar o Service que chama a nossa API -> que acessa a base e tras os registro para o service -> que então disponibiliza para o componente
   this.courseApi.PegarTodosRegistros().subscribe((data:{}) =>{
-    this.coursesList = data
-    console.log(this.coursesList)
+    this.courseList = data
+    console.log(this.courseList)
   })
 }
 

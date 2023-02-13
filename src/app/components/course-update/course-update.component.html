@@ -1,28 +1,27 @@
-<!-- Criar um formulario para obtencao dos novos dados -->
+<!-- Criação do formulario inserir o curso  -->
 <div class="container">
     <div class="col-md-12">
-
         <h3>{{ titleComponente }}</h3>
-
+            
         <div class="form-group">
-            <input type="text" [(ngModel)] = "courseUpdateData.nomeCurso" placeholder="Informe o nome do Curso" class="form-control"/>
+           Nome do Curso: <input type="text"[(ngModel)] = "courseUpdateData.nomeCurso" placeholder="Informe o nome do curso" class="form-control"/>
+        </div>   
+        
+        <div class="form-group">
+            Valor da Mensalidade: R$<input type="number" [(ngModel)] = "courseUpdateData.mensalidade" placeholder="Digite o valor da mensalidade" class="form-control"/>
         </div>
-
+        <br>
         <div class="form-group">
-            <input type="number" [(ngModel)] = "courseUpdateData.mensalidade" placeholder="Valor da Mensalidade" class="form-control"/>
-        </div>
-
-        <div class="form-group">
-            <button class="btn btn-success btn-lg" (click) = " upCourseReg() ">
-                Salvar Curso
+            <button class="btn btn-success btn-lg" (click) = "upCourseReg()">
+                Salvar
             </button>
         </div>
-
-        </div>
-        <div class="form-group">
-            <button class="btn btn-primary btn-sm" routerLink= "/course-list">
-               Voltar lista Cursos
+        <br>
+        <div>
+            <button class="btn btn-primary btn-sm" routerLink = "/course-list">
+                Voltar Lista Cursos
             </button>
         </div>
     </div>
 </div>
+
