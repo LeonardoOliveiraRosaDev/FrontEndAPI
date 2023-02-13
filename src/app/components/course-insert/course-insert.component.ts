@@ -31,6 +31,7 @@ inserirUmCurso(): any{
   // chamada da DI que acessa API
   this.courseApi.inserirCurso(this.newCurso).subscribe(() => {
     this.roteando.navigate(['/course-list'])
+    console.log(this.newCurso)
   })
 }
 }

@@ -66,6 +66,7 @@ PegarUmRegistro(id: number) : Observable<ICourse>{
 //JSON.stringify()- cria uma unica frase em formato Json cria uma unica string , uma unica linha serialized
 inserirCurso(data: any) : Observable<ICourse>{
   //apiEndUrl = http://localhost:5121/api/Course/AddRegister
+  console.log(data)
   return this.RequiHttp.post<ICourse>(this.apiEndUrl+'/AddRegister', JSON.stringify(data), this.credAcess)
   // JSON.stringify == {"id:0,NomeCurso: XXXXXX, Mensalidade: XXXXXX"}
 }

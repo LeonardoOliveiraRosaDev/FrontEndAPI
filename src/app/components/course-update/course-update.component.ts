@@ -1,4 +1,4 @@
-// Acrescentar o OnInit
+// Acrescentar o OnInit  = "Angular hook"
 import { Component, OnInit } from '@angular/core';
 
 // Import do Service para uso do componente
